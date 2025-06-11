@@ -28,6 +28,7 @@ while True:
 # ===== Main Menu =====
 while True:
     # Displaying menu options
+    print("Users loaded:", users)
     menu = input('''\nPlease select one of the following options:
 r  - Register a new user
 a  - Add a task
@@ -49,14 +50,14 @@ e  - Exit
 
         if new_pass == confirm_pass:
             with open("user.txt", "a") as file:
-                file.write(f"\n{new_user}, {new_pass}\n")
+                file.write(f"{new_user}, {new_pass}\n")
             print("✅ User registered successfully.")
         else:
             print("❌ Passwords do not match. Try again.")
 
     elif menu == 'a':
         # ===== Add a new task =====
-        assigned_to = input("Enter the username to assign the task to: ")
+        assigned_to = input("Enter the username to assign the task to: ").strip()
 
         if assigned_to not in users:
             print("❌ User does not exist. Please try again.")
@@ -70,7 +71,7 @@ e  - Exit
 
         with open("tasks.txt", "a") as task_file:
             task_file.write(
-                f"\n{assigned_to}, {title}, {description}, "
+                f"{assigned_to}, {title}, {description}, "
                 f"{date_assigned}, {due_date}, {complete}\n"
             )
 
