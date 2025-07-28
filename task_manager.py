@@ -32,7 +32,7 @@ while True:
     menu = input('''\nPlease select one of the following options:
 r  - Register a new user
 a  - Add a task
-va - View all tasks
+da - Display all tasks
 vm - View my tasks
 e  - Exit
 : ''').lower()
@@ -77,7 +77,7 @@ e  - Exit
 
         print("✅ Task added successfully.")
 
-    elif menu == 'va':
+    elif menu == 'da':
         # ===== View all tasks =====
         try:
             with open("tasks.txt", "r") as task_file:
